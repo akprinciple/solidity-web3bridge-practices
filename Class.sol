@@ -54,5 +54,15 @@ function setOwner()  public  {
         numbers.pop();
     }
 
+    constructor() {
+        owner = msg.sender;
+    }
     
+    modifier  AdminOnly (){
+        require(msg.sender == owner, 'Invalid Owner');
+        _;
+    }
+    function withdraw() public AdminOnly{
+
+    }
 }
